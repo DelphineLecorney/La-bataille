@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using La_bataille.Display;
 
 namespace La_bataille.Models
 {
@@ -10,6 +6,7 @@ namespace La_bataille.Models
     {
         public string Name { get; set; }
         private Queue<Card> CardsDeck { get; set; }
+
 
         public Player(string name)
         {
@@ -47,7 +44,42 @@ namespace La_bataille.Models
         {
             return CardsDeck.Count;
         }
+
+        public bool HasCards()
+        {
+            return CardsDeck.Count > 0;
+        }
+
+        public Card? ChooseCardManually()
+        {
+            if (CardsDeck.Count == 0)
+            {
+                Console.WriteLine("Vous n'avez plus de cartes !");
+                return null;
+            }
+
+            List<Card> tempList = CardsDeck.ToList();
+
+            Console.Write($"Taper sur Entrée ou Q pour quitter : ");
+            string? input = Console.ReadLine()?.Trim().ToUpper();
+
+            if (input == "Q")
+                return null;
+
+            if (int.TryParse(input, out int index) && index >= 1 && index <= tempList.Count)
+            {
+                Card chosen = tempList[index - 1];
+                DisplayHelper.DisplayDuel(chosen, chosen, this.Name, this.Name);
+
+                CardsDeck = new Queue<Card>(tempList.Where((c, i) => i != index - 1));
+                return chosen;
+            }
+            else
+            {
+                Card playedCard = CardsDeck.Dequeue();
+                return playedCard;
+            }
+        }
+
     }
-
-
 }

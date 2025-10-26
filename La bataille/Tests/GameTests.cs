@@ -10,7 +10,8 @@ namespace La_bataille.Tests
             //TestDeckGeneration();
             //TestDeckShuffle();
             //TestPlayerCards();
-            TestTwoPlayers();
+            //TestTwoPlayers();
+            TestTwoPlayers2();
         }
 
         public static void TestCardComparison()
@@ -23,10 +24,12 @@ namespace La_bataille.Tests
             Console.WriteLine(carte2);
             Console.WriteLine($"Valeur de la carte : {carte2.GetCardValue()}");
 
-            if (Card.CompareCards(carte, carte2))
-                Console.WriteLine($"{carte} est plus forte que {carte2}");
+            if ( carte.Equals( carte2 ) )
+                Console.WriteLine("Les cartes sont égales.");
+            else if ( carte.GetCardValue() > carte2.GetCardValue() )
+                Console.WriteLine("La première carte est plus forte.");
             else
-                Console.WriteLine($"{carte2} est plus forte que {carte}");
+                Console.WriteLine("La deuxième carte est plus forte.");
         }
 
         public static void TestDeckGeneration()
@@ -66,7 +69,20 @@ namespace La_bataille.Tests
             Player player2 = new("Bob");
 
             Game.DistributeCards(deck, player1, player2);
-            Game.PlayRound(player1, player2);
+            Game.PlayRound(player1, player2, true);
+        }
+
+        public static void TestTwoPlayers2()
+        {
+            List<Card> deck = DeckBuilder.GenerateCards();
+            deck = DeckBuilder.ShuffleDeck(deck);
+
+            Player player1 = new("Alice");
+            Player player2 = new("Bob");
+
+            Game.DistributeCards(deck, player1, player2);
+            Game.PlayGame(player1, player2, true);
+
         }
     }
 }
