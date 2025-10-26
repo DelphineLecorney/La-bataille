@@ -1,11 +1,11 @@
 ﻿namespace La_bataille.Models
 {
-    public class Cards
+    public class Card
     {
-        public Values Values;
-        public Colors Colors;
+        public Value Values;
+        public Color Colors;
 
-        public Cards(Values values, Colors colors)
+        public Card(Value values, Color colors)
         {
             Values = values;
             Colors = colors;
@@ -21,7 +21,7 @@
             return (int)Values;
         }
 
-        public static bool CompareCards(Cards card1, Cards card2)
+        public static bool CompareCards(Card card1, Card card2)
         {
             if (card1.GetCardValue() > card2.GetCardValue())
             {

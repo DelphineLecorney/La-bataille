@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace La_bataille.Models
 {
-    public enum Colors
+    public enum Color
     {
         Trèfle,
         Carreau,

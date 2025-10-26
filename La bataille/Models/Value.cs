@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace La_bataille.Models
 {
-    public enum Values
+    public enum Value
     {
         Deux = 2,
         Trois = 3,

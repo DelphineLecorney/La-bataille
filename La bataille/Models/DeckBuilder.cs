@@ -2,18 +2,25 @@
 {
     internal class DeckBuilder
     {
-        public static List<Cards> GenerateCards()
+        public static List<Card> GenerateCards()
         {
-            List<Cards> deck = new List<Cards>();
+            List<Card> deck = [];
 
-            foreach (Colors color in Enum.GetValues(typeof(Colors)))
+            foreach (Color color in Enum.GetValues(typeof(Color)))
             {
-                foreach (Values value in Enum.GetValues(typeof(Values)))
+                foreach (Value value in Enum.GetValues(typeof(Value)))
                 {
-                    deck.Add(new Cards(value, color));
+                    deck.Add(new Card(value, color));
                 }
             }
             return deck;
         }
+
+        public static List<Card> ShuffleDeck(List<Card> deck)
+        {
+            Random rand = new();
+            return deck.OrderBy(c => rand.Next()).ToList();
+        }
+
     }
 }
