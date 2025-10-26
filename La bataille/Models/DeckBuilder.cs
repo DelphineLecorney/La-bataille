@@ -1,6 +1,6 @@
 ﻿namespace La_bataille.Models
 {
-    internal class DeckBuilder
+    internal static class DeckBuilder
     {
         public static List<Card> GenerateCards()
         {

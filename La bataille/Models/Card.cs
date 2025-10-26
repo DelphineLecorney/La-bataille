@@ -1,38 +1,29 @@
 ﻿namespace La_bataille.Models
 {
-    public class Card
+    internal class Card
     {
-        public Value Values;
-        public Color Colors;
+        public Value Value { get; }
+        public Color Color { get; }
 
-        public Card(Value values, Color colors)
+        public Card(Value value, Color color)
         {
-            Values = values;
-            Colors = colors;
+            Value = value;
+            Color = color;
         }
 
         public override string ToString()
         {
-            return $"{Values} de {Colors}";
+            return $"{Value} de {Color}";
         }
 
         public int GetCardValue()
         {
-            return (int)Values;
+            return (int)Value;
         }
 
         public static bool CompareCards(Card card1, Card card2)
         {
-            if (card1.GetCardValue() > card2.GetCardValue())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return card1.GetCardValue() > card2.GetCardValue();
         }
-
-
     }
 }

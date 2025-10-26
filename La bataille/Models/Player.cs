@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace La_bataille.Models
 {
-    public class Player
+    internal class Player
     {
         public string Name { get; set; }
-        public Queue<Card> CardsDeck { get; set; }
+        private Queue<Card> CardsDeck { get; set; }
 
         public Player(string name)
         {
