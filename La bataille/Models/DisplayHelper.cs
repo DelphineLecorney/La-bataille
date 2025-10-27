@@ -53,7 +53,9 @@ namespace La_bataille.Display
             Console.WriteLine($"\n╔{new string('═', width)}╗");
             Console.WriteLine($"║{CenterText(title, width)}║");
             Console.WriteLine($"╚{new string('═', width)}╝");
-            Console.WriteLine(" Préparation des cartes de bataille...");
+            Console.WriteLine("...");
+            Console.WriteLine("  Préparation des cartes de bataille...");
+            Console.WriteLine("...");
             Thread.Sleep(2000);
         }
 
@@ -62,7 +64,6 @@ namespace La_bataille.Display
             int width = 40;
             string title = $"{winnerName} remporte la bataille !";
 
-            Console.WriteLine("\n* Résultat de la bataille :");
             Console.WriteLine($"╔{new string('═', width)}╗");
             Console.WriteLine($"║{CenterText(title, width)}║");
             Console.WriteLine($"╚{new string('═', width)}╝");
@@ -153,12 +154,7 @@ namespace La_bataille.Display
                 Console.Write($"\r{frame.PadRight(Console.WindowWidth - 1)}");
                 Thread.Sleep(200);
             }
-
-            //string finalMessage = "Carte cachée tirée !";
-            //Console.WriteLine($"\r{finalMessage.PadRight(Console.WindowWidth - 1)}");
         }
-
-
 
         private static string CenterText(string text, int width)
         {
