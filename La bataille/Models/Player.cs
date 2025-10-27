@@ -60,7 +60,7 @@ namespace La_bataille.Models
 
             List<Card> tempList = CardsDeck.ToList();
 
-            Console.Write($"Taper sur Entrée ou Q pour quitter : ");
+            Console.Write($" => Taper sur Entrée ou Q pour quitter : ");
             string? input = Console.ReadLine()?.Trim().ToUpper();
 
             if (input == "Q")

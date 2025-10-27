@@ -110,8 +110,8 @@ namespace La_bataille.Models
             Card hidden1 = player1.PlayCard();
             Card hidden2 = player2.PlayCard();
 
-            DisplayHelper.AnimateHiddenCard(player1.Name);
-            DisplayHelper.AnimateHiddenCard(player2.Name);
+            DisplayHelper.AnimateCardDraw(player1.Name);
+            DisplayHelper.AnimateCardDraw(player2.Name);
 
             if (hidden1 == null)
             {

@@ -142,16 +142,23 @@ namespace La_bataille.Display
             return new[] { top, middle, bottom };
         }
 
-        public static void AnimateHiddenCard(string playerName)
+        public static void AnimateCardDraw(string message = "Tirage en cours...")
         {
-            Console.Write($"\n{playerName} prépare une carte cachée");
-            for (int i = 0; i < 3; i++)
+            string[] loading = { "|", "/", "-", "\\" };
+            Console.Write("\nPréparation de la carte cachée ");
+
+            for (int i = 0; i < 8; i++)
             {
-                Thread.Sleep(400);
-                Console.Write(".");
+                string frame = $"{loading[i % loading.Length]} {message}";
+                Console.Write($"\r{frame.PadRight(Console.WindowWidth - 1)}");
+                Thread.Sleep(200);
             }
-            Console.WriteLine(" (face cachée)");
+
+            //string finalMessage = "Carte cachée tirée !";
+            //Console.WriteLine($"\r{finalMessage.PadRight(Console.WindowWidth - 1)}");
         }
+
+
 
         private static string CenterText(string text, int width)
         {
