@@ -107,8 +107,11 @@ namespace La_bataille.Models
                 return;
             }
 
-            Card? hidden1 = isManual ? player1.ChooseCardManually() : player1.PlayCard();
+            Card hidden1 = player1.PlayCard();
             Card hidden2 = player2.PlayCard();
+
+            DisplayHelper.AnimateHiddenCard(player1.Name);
+            DisplayHelper.AnimateHiddenCard(player2.Name);
 
             if (hidden1 == null)
             {

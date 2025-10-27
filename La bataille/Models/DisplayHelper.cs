@@ -29,7 +29,7 @@ namespace La_bataille.Display
                 Console.ForegroundColor = card2.Color.GetConsoleColor();
                 Console.WriteLine(rightCard[i]);
                 Console.ResetColor();
-            }                
+            }
         }
 
         public static void AnnounceGame()
@@ -142,12 +142,21 @@ namespace La_bataille.Display
             return new[] { top, middle, bottom };
         }
 
+        public static void AnimateHiddenCard(string playerName)
+        {
+            Console.Write($"\n{playerName} prépare une carte cachée");
+            for (int i = 0; i < 3; i++)
+            {
+                Thread.Sleep(400);
+                Console.Write(".");
+            }
+            Console.WriteLine(" (face cachée)");
+        }
 
         private static string CenterText(string text, int width)
         {
             int padding = (width - text.Length) / 2;
             return text.PadLeft(text.Length + padding).PadRight(width);
         }
-
     }
 }
